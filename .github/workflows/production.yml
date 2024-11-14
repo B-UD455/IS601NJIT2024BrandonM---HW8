@@ -13,22 +13,25 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
 
       - name: Cache Docker layers
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         with:
           path: /tmp/.buildx-cache
           key: ${{ runner.os }}-buildx-${{ github.sha }}
           restore-keys: |
             ${{ runner.os }}-buildx-
 
+      - name: Install dependencies
+        run: npm install
+
       - name: Build and Test Docker image
         run: |
-          docker build -t your-image-name .
+          docker build -t your-image-name:latest .
           docker run --rm your-image-name npm test
 
   deploy:
@@ -49,3 +52,5 @@ jobs:
         with:
           push: true
           tags: B-UD455/devops_demo:latest
+
+      
