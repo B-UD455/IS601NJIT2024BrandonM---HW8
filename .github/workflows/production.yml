@@ -65,11 +65,8 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_PASSWORD }}
 
-      - name: Build Docker image
-        run: |
-          docker build -t your-username/your-image-name:latest .
-
-      - name: Push Docker image to DockerHub
-        run: |
-          docker push your-username/your-image-name:latest
-
+- name: Build and push Docker image
+        uses: docker/build-push-action@v5
+        with:
+          push: true
+          tags: B-UD455/devops_demo:latest
