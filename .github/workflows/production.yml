@@ -55,7 +55,7 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           push: true
-          tags: B_UD455/devops_demo:${{ github.sha }}  # Unique tag based on commit hash
+          tags: b_ud455/devops_demo:${{ github.sha }}  # Unique tag based on commit hash
           
           # Add other relevant build parameters here
       
