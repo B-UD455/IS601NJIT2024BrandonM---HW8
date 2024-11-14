@@ -4,5 +4,7 @@ This project uses GitHub Actions to automatically build and push Docker images t
 
 ## Docker Hub Image
 
+URL: https://hub.docker.com/r/bm423/devops_demo/tags
+
 ![Docker Image Screenshot](path_to_screenshot)
 
